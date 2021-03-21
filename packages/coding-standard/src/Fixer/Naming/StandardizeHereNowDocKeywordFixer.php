@@ -116,6 +116,11 @@ CODE_SAMPLE
         $this->keyword = $configuration[self::KEYWORD] ?? self::DEFAULT_KEYWORD;
     }
 
+    public function getConfigurationDefinition(): FixerConfigurationResolverInterface
+    {
+        throw new ShouldNotHappenException();
+    }
+
     /**
      * @param Tokens<Token> $tokens
      */
@@ -153,10 +158,5 @@ CODE_SAMPLE
         }
 
         $tokens[$position] = new Token([$token->getId(), $spaceEnd . $this->keyword]);
-    }
-
-    public function getConfigurationDefinition(): FixerConfigurationResolverInterface
-    {
-        throw new ShouldNotHappenException();
     }
 }

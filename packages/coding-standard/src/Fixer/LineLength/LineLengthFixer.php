@@ -203,6 +203,11 @@ CODE_SAMPLE
         $this->inlineShortLines = $configuration[self::INLINE_SHORT_LINES] ?? true;
     }
 
+    public function getConfigurationDefinition(): FixerConfigurationResolverInterface
+    {
+        throw new ShouldNotHappenException();
+    }
+
     /**
      * @param Tokens<Token> $tokens
      */
@@ -292,10 +297,5 @@ CODE_SAMPLE
         }
 
         return Strings::contains($nextToken->getContent(), '<<<');
-    }
-
-    public function getConfigurationDefinition(): FixerConfigurationResolverInterface
-    {
-        throw new ShouldNotHappenException();
     }
 }
