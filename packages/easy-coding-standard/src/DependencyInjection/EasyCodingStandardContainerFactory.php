@@ -22,7 +22,9 @@ final class EasyCodingStandardContainerFactory
         return $this->createFromFromBootstrapConfigs($bootstrapConfigs);
     }
 
-    public function createFromFromBootstrapConfigs(BootstrapConfigs $bootstrapConfigs): ContainerInterface
+    public function createFromFromBootstrapConfigs(
+        BootstrapConfigs $bootstrapConfigs
+    ): \Symfony\Component\DependencyInjection\ContainerInterface
     {
         $environment = 'prod' . random_int(1, 100000);
         $easyCodingStandardKernel = new EasyCodingStandardKernel($environment, StaticInputDetector::isDebug());
